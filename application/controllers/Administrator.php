@@ -369,22 +369,4 @@ class Administrator extends CI_Controller
     /*
         End of data role
     */
-
-
-    /*
-        Data Nakes
-    */
-    public function nakes()
-    {
-        $data['nakes'] = $this->M_user->getByRole();
-        $data['title'] = 'Data role';
-        $this->load->view('Layout/Admin/header', $data);
-        $this->load->view('Layout/Admin/sidebar', $data);
-        $this->load->view('Layout/Admin/topbar');
-        $this->load->view('Pages/Admin/data_nakes', $data);
-        $this->load->view('Layout/Admin/footer');
-    }
-    /*
-        End of data role
-    */
 }
