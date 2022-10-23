@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 23 Jul 2022 pada 14.32
+-- Waktu pembuatan: 23 Okt 2022 pada 08.07
 -- Versi server: 5.7.33
 -- Versi PHP: 8.1.8
 
@@ -29,13 +29,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tb_ibuhamil` (
   `id_ibuhamil` int(11) NOT NULL,
-  `no_kk` varchar(64) NOT NULL,
-  `nik` varchar(64) NOT NULL,
+  `no_kk` int(20) NOT NULL,
+  `nik` int(20) NOT NULL,
   `nama_lengkap` varchar(128) NOT NULL,
   `tempat_lahir` varchar(128) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `umur` int(11) NOT NULL,
-  `no_wa` varchar(20) NOT NULL,
+  `no_wa` char(20) NOT NULL,
   `alamat` text NOT NULL,
   `pendidikan` varchar(20) NOT NULL,
   `gol_darah` varchar(20) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE `tb_ibuhamil` (
 --
 
 INSERT INTO `tb_ibuhamil` (`id_ibuhamil`, `no_kk`, `nik`, `nama_lengkap`, `tempat_lahir`, `tanggal_lahir`, `umur`, `no_wa`, `alamat`, `pendidikan`, `gol_darah`, `agama`, `berat_badan`, `tinggi_badan`) VALUES
-(1, '330929289890124', '3272020909000001', 'Siti Ningsih', 'Sukabumi', '1995-09-08', 28, '89678762343', 'Jl. Tangkil Kipak Jaya Sukabumi, Jawa Barat, Indonesia', 'SLTA/Sederajat', 'B', 'Islam', 56, 160);
+(1, 0, 0, 'Siti Ningsih', 'Sukabumi', '1995-09-08', 28, '89678762343', 'Jl. Tangkil Kipak Jaya Sukabumi, Jawa Barat, Indonesia', 'SLTA/Sederajat', 'B', 'Islam', 56, 160);
 
 -- --------------------------------------------------------
 
@@ -62,12 +62,12 @@ CREATE TABLE `tb_monitoring` (
   `id_ibuhamil` int(11) NOT NULL,
   `tanggal_monitoring` date NOT NULL,
   `tekanan_darah` varchar(32) NOT NULL,
-  `tinggi_badan` varchar(16) NOT NULL,
-  `berat_badan` varchar(16) NOT NULL,
-  `lingkar_lengan_atas` varchar(32) NOT NULL,
+  `tinggi_badan` int(20) NOT NULL,
+  `berat_badan` int(20) NOT NULL,
+  `lingkar_lengan_atas` int(20) NOT NULL,
   `leopold` varchar(64) NOT NULL,
-  `tinggi_fundus_uteri` varchar(32) NOT NULL,
-  `denyut_jantung_janin` varchar(32) NOT NULL
+  `tinggi_fundus_uteri` int(20) NOT NULL,
+  `denyut_jantung_janin` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -75,7 +75,7 @@ CREATE TABLE `tb_monitoring` (
 --
 
 INSERT INTO `tb_monitoring` (`id`, `id_ibuhamil`, `tanggal_monitoring`, `tekanan_darah`, `tinggi_badan`, `berat_badan`, `lingkar_lengan_atas`, `leopold`, `tinggi_fundus_uteri`, `denyut_jantung_janin`) VALUES
-(2, 1, '2022-07-16', '90/90', '170', '56', '25', 'leopold 4', '14', '120');
+(2, 1, '2022-07-16', '90/90', 170, 56, 25, 'leopold 4', 14, 120);
 
 -- --------------------------------------------------------
 
@@ -85,7 +85,7 @@ INSERT INTO `tb_monitoring` (`id`, `id_ibuhamil`, `tanggal_monitoring`, `tekanan
 
 CREATE TABLE `tb_role` (
   `id` int(11) NOT NULL,
-  `role` varchar(32) NOT NULL,
+  `role` char(10) NOT NULL,
   `created_at` timestamp NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

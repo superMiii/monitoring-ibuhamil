@@ -56,13 +56,13 @@ class Administrator extends CI_Controller
     }
     public function add_ibuhamil()
     {
-        $this->form_validation->set_rules('no_kk', 'NO KK', 'required|numeric|is_unique[tb_ibuhamil.no_kk]');
-        $this->form_validation->set_rules('nik', 'NIK', 'required|numeric|is_unique[tb_ibuhamil.nik]');
+        $this->form_validation->set_rules('no_kk', 'NO KK', 'required|numeric|is_unique[tb_ibuhamil.no_kk]|max_length[16]');
+        $this->form_validation->set_rules('nik', 'NIK', 'required|numeric|is_unique[tb_ibuhamil.nik]|max_length[16]');
         $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'required');
         $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
         $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
         $this->form_validation->set_rules('umur', 'Umur', 'required|numeric|max_length[3]');
-        $this->form_validation->set_rules('no_wa', 'No WA', 'required|numeric');
+        $this->form_validation->set_rules('no_wa', 'No WA', 'required|numeric|max_length[14]');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
         $this->form_validation->set_rules('pendidikan', 'Pendidikan', 'required');
         $this->form_validation->set_rules('gol_darah', 'Gol Darah', 'required');
@@ -84,13 +84,13 @@ class Administrator extends CI_Controller
     }
     public function edit_ibuhamil($id)
     {
-        $this->form_validation->set_rules('no_kk', 'NO KK', 'required|numeric|is_unique[tb_ibuhamil.no_kk]');
-        $this->form_validation->set_rules('nik', 'NIK', 'required|numeric|is_unique[tb_ibuhamil.nik]');
+        $this->form_validation->set_rules('no_kk', 'NO KK', 'required|numeric|is_unique[tb_ibuhamil.no_kk]|max_length[16]');
+        $this->form_validation->set_rules('nik', 'NIK', 'required|numeric|is_unique[tb_ibuhamil.nik]|max_length[16]');
         $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'required');
         $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
         $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
         $this->form_validation->set_rules('umur', 'Umur', 'required|numeric|max_length[3]');
-        $this->form_validation->set_rules('no_wa', 'No WA', 'required|numeric');
+        $this->form_validation->set_rules('no_wa', 'No WA', 'required|numeric|max_length[14]');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
         $this->form_validation->set_rules('pendidikan', 'Pendidikan', 'required');
         $this->form_validation->set_rules('gol_darah', 'Gol Darah', 'required');
@@ -156,7 +156,7 @@ class Administrator extends CI_Controller
         $this->form_validation->set_rules('tanggal_monitoring', 'Tanggal Monitoring', 'required');
         $this->form_validation->set_rules('tekanan_darah', 'Tekanan Darah', 'required');
         $this->form_validation->set_rules('tinggi_badan', 'Tinggi Badan', 'required|numeric|max_length[4]');
-        $this->form_validation->set_rules('berat_badan', 'Berat Badan', 'required|max_length[4]');
+        $this->form_validation->set_rules('berat_badan', 'Berat Badan', 'required|numeric|max_length[4]');
         $this->form_validation->set_rules('lingkar_lengan_atas', 'Lingkar Lengan Atas', 'required');
         $this->form_validation->set_rules('leopold', 'Leopold', 'required');
         $this->form_validation->set_rules('tinggi_fundus_uteri', 'Tinggi Fundus Uteri', 'required');

@@ -31,14 +31,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="tinggi_badan">Tinggi Badan</label>
-                                            <input type="number" class="form-control" id="tinggi_badan" name="tinggi_badan" placeholder="Tinggi Badan">
+                                            <input type="number" class="form-control" id="tinggi_badan" name="tinggi_badan" placeholder="Tinggi Badan" max="10">
                                             <?= form_error('tinggi_badan', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="berat_badan">Berat Badan</label>
-                                            <input type="number" class="form-control" id="berat_badan" name="berat_badan" placeholder="Berat Badan">
+                                            <input type="number" class="form-control" id="berat_badan" name="berat_badan" placeholder="Berat Badan" max="10">
                                             <?= form_error('berat_badan', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>
@@ -47,7 +47,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="lingkar_lengan_atas">lingkar Lengan Atas</label>
-                                            <input type="number" class="form-control" id="lingkar_lengan_atas" name="lingkar_lengan_atas" placeholder="lingkar lengan atas">
+                                            <input type="number" class="form-control" id="lingkar_lengan_atas" name="lingkar_lengan_atas" placeholder="lingkar lengan atas" max="10">
                                             <?= form_error('lingkar_lengan_atas', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>
@@ -63,14 +63,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="tinggi_fundus_uteri">Tinggi Fundus Uteri</label>
-                                            <input type="number" class="form-control" id="tinggi_fundus_uteri" name="tinggi_fundus_uteri" placeholder="Tinggi fundus_uteri">
+                                            <input type="number" class="form-control" id="tinggi_fundus_uteri" name="tinggi_fundus_uteri" placeholder="Tinggi fundus_uteri" max="10">
                                             <?= form_error('tinggi_fundus_uteri', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="denyut_jantung_janin">Denyut Jantung Janin</label>
-                                            <input type="number" class="form-control" id="denyut_jantung_janin" name="denyut_jantung_janin" placeholder="denyut jantung janin">
+                                            <input type="number" class="form-control" id="denyut_jantung_janin" name="denyut_jantung_janin" placeholder="denyut jantung janin" max="10">
                                             <?= form_error('denyut_jantung_janin', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>

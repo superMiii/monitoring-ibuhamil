@@ -15,14 +15,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="no_kk">No KK</label>
-                                            <input type="number" class="form-control" id="no_kk" name="no_kk" value="<?= $ibuhamil['no_kk'] ?>" placeholder="No KK">
+                                            <input type="number" class="form-control" id="no_kk" name="no_kk" max="16" value="<?= $ibuhamil['no_kk'] ?>" placeholder="No KK">
                                             <?= form_error('no_kk', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="nik">No NIK</label>
-                                            <input type="number" class="form-control" id="nik" name="nik" value="<?= $ibuhamil['nik'] ?>" placeholder="No NIK">
+                                            <input type="number" class="form-control" id="nik" name="nik" max="16" value="<?= $ibuhamil['nik'] ?>" placeholder="No NIK">
                                             <?= form_error('nik', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>
@@ -59,7 +59,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="no_wa">No WA (aktif)</label>
-                                            <input type="number" class="form-control" id="no_wa" name="no_wa" value="<?= $ibuhamil['no_wa'] ?>" placeholder="wa aktif">
+                                            <input type="number" class="form-control" id="no_wa" name="no_wa" max="14" value="<?= $ibuhamil['no_wa'] ?>" placeholder="wa aktif">
                                             <?= form_error('no_wa', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>
@@ -118,14 +118,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="tinggi_badan">Tinggi Badan (cm)</label>
-                                            <input type="number" class="form-control" id="tinggi_badan" name="tinggi_badan" value="<?= $ibuhamil['tinggi_badan'] ?>" placeholder="cm">
+                                            <input type="number" class="form-control" id="tinggi_badan" max="4" name="tinggi_badan" value="<?= $ibuhamil['tinggi_badan'] ?>" placeholder="cm">
                                             <?= form_error('tinggi_badan', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="berat_badan">Berat Badan (kg)</label>
-                                            <input type="number" class="form-control" id="berat_badan" name="berat_badan" value="<?= $ibuhamil['berat_badan'] ?>" placeholder="kg">
+                                            <input type="number" class="form-control" id="berat_badan" max="4" name="berat_badan" value="<?= $ibuhamil['berat_badan'] ?>" placeholder="kg">
                                             <?= form_error('berat_badan', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>

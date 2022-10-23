@@ -31,14 +31,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="password">Password</label>
-                                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" min="6">
                                             <?= form_error('password', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="password2">Password Confirmation</label>
-                                            <input type="password" class="form-control" id="password2" name="password2" placeholder="Password confirm">
+                                            <input type="password" class="form-control" id="password2" name="password2" placeholder="Password confirm" min="6">
                                             <?= form_error('password2', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>

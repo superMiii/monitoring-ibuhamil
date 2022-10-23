@@ -52,8 +52,8 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     Total User dan Role</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">User : <?= $count_all_user ?></div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">Role : <?= $count_all_role ?></div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $count_all_user ?> Data</div>
+                                <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">Role : <?= $count_all_role ?></div> -->
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-users-cog fa-2x text-warning"></i>
@@ -122,7 +122,7 @@
                 </div>
             </div>
 
-            <div class="col-xl-4 col-lg-6 mb-4">
+            <!-- <div class="col-xl-4 col-lg-6 mb-4">
                 <div class="card dashboard border-danger shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         <?php endif; ?>
     </div>
 
