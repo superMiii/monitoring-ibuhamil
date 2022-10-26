@@ -18,6 +18,10 @@ class M_user extends CI_Model
     {
         return $this->db->query('SELECT * FROM tb_user WHERE role = 2')->num_rows();
     }
+    public function getNakes()
+    {
+        return $this->db->query('SELECT * FROM tb_user WHERE role = 2')->result_array();
+    }
     public function add()
     {
         $data = [

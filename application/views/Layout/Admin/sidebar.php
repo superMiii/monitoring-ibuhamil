@@ -40,6 +40,13 @@
     </li>
 
     <!-- Nav Item - Dashboard -->
+    <li class="nav-item <?= ($title === 'Data Nakes' ? 'active' : '') ?>">
+        <a class="nav-link" href="<?= base_url('administrator/nakes'); ?>">
+            <i class="fas fa-fw fa-user-md"></i>
+            <span>Data Nakes</span></a>
+    </li>
+
+    <!-- Nav Item - Dashboard -->
     <?php if ($this->session->userdata('role') == 1) : ?>
         <li class="nav-item <?= ($title === 'Data User' || $title === 'Data Role' ? 'active' : '') ?>">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapse">

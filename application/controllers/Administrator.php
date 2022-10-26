@@ -202,6 +202,20 @@ class Administrator extends CI_Controller
     */
 
     /*
+        Data Nakes
+    */
+    public function nakes()
+    {
+        $data['nakes'] = $this->M_user->getNakes();
+        $data['title'] = 'Data Nakes';
+        $this->load->view('Layout/Admin/header', $data);
+        $this->load->view('Layout/Admin/sidebar', $data);
+        $this->load->view('Layout/Admin/topbar');
+        $this->load->view('Pages/Admin/data_nakes', $data);
+        $this->load->view('Layout/Admin/footer');
+    }
+
+    /*
         Data User
     */
     public function user()
