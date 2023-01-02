@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <a href="<?= base_url('administrator/data_ibuhamil') ?>" class="badge badge-primary mb-4">
                         < Kembali</a>
-                            <table class="table table-responsive">
+                            <table class="table">
                                 <tbody>
                                     <tr>
                                         <td>Nama Lengkap</td>
@@ -58,6 +58,37 @@
                                         <td>Alamat</td>
                                         <td>: <?= $ibuhamil['alamat'] ?></td>
                                     </tr>
+                                </tbody>
+                            </table>
+                            <table class="table table-bordered w-100" id="dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Tanggal Monitoring</th>
+                                        <th>Tekanan Darah</th>
+                                        <th>Tinggi Badan</th>
+                                        <th>Berat Badan</th>
+                                        <th>Lingkar Lengan Atas</th>
+                                        <th>Leopold</th>
+                                        <th>Tinggi Fundus Uteri</th>
+                                        <th>Denyut Jantung Janin</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $no = 1;
+                                    foreach ($monitoring_ibuhamil as $mi) : ?>
+                                        <tr>
+                                            <td class="text-sm"><?= $no++; ?></td>
+                                            <td class="text-sm"><?= date('d M Y', strtotime($mi['tanggal_monitoring'])) ?></td>
+                                            <td class="text-sm"><?= $mi['tekanan_darah'] ?> mmHg</td>
+                                            <td class="text-sm"><?= $mi['tinggi_badan'] ?> cm</td>
+                                            <td class="text-sm"><?= $mi['berat_badan'] ?> kg</td>
+                                            <td class="text-sm"><?= $mi['lingkar_lengan_atas'] ?> cm</td>
+                                            <td class="text-sm">Leopold <?= $mi['leopold'] ?></td>
+                                            <td class="text-sm"><?= $mi['tinggi_fundus_uteri'] ?> cm</td>
+                                            <td class="text-sm"><?= $mi['denyut_jantung_janin'] ?> x/menit</td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                 </div>

@@ -11,8 +11,8 @@
                             Data Nakes</div>
                     </div>
                     <?= $this->session->flashdata('message') ?>
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable">
+                    <div class="table">
+                        <table class="table table-bordered w-100" id="dataTable">
                             <thead>
                                 <tr>
                                     <th>#</th>

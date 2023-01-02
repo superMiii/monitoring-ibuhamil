@@ -11,7 +11,7 @@
                             Data Monitoring Ibu Hamil</div>
                     </div>
                     <?= $this->session->flashdata('message') ?>
-                    <div class="table-responsive">
+                    <div class="table">
                         <table class="table table-bordered" id="dataTable">
                             <thead>
                                 <tr>

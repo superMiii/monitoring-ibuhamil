@@ -11,7 +11,7 @@
                             <h5>Data Monitoring Tanggal <?= date('d M Y', strtotime($monitoring_ibuhamil['tanggal_monitoring'])) ?></h5>
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Data Pribadi</div>
-                            <div class="table-responsive">
+                            <div class="table">
                                 <table class="table">
                                     <tbody>
                                         <tr>

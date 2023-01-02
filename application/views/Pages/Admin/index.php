@@ -77,7 +77,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <a href="<?= base_url('administrator/data_ibuhamil'); ?>" class="text-primary" style="text-decoration:none;">Data Ibu Hamil</a>
+                                <a href="<?= ($this->session->userdata('role') == 2) ? base_url('user/data_ibuhamil') : base_url('administrator/data_ibuhamil'); ?>" class="text-primary" style="text-decoration:none;">Data Ibu Hamil</a>
                             </div>
                         </div>
                         <div class="col-auto">
@@ -94,11 +94,27 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <a href="<?= base_url('administrator/data_monitoring'); ?>" class="text-success" style="text-decoration:none;">Data Monitoring</a>
+                                <a href="<?= ($this->session->userdata('role') == 2) ? base_url('user/data_monitoring') : base_url('administrator/data_monitoring'); ?>" class="text-success" style="text-decoration:none;">Data Monitoring</a>
                             </div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-heartbeat fa-2x text-success"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 mb-4">
+            <div class="card dashboard border-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <a href="<?= ($this->session->userdata('role') == 2) ? base_url('user/nakes') : base_url('administrator/nakes'); ?>" class="text-warning" style="text-decoration:none;">Data Nakes</a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-user-nurse fa-2x text-warning"></i>
                         </div>
                     </div>
                 </div>
@@ -111,7 +127,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <a href="<?= base_url('administrator/user'); ?>" class="text-warning" style="text-decoration:none;">Data User</a>
+                                    <a href="<?= ($this->session->userdata('role') == 2) ? base_url('user/user') : base_url('administrator/user'); ?>" class="text-warning" style="text-decoration:none;">Data User</a>
                                 </div>
                             </div>
                             <div class="col-auto">

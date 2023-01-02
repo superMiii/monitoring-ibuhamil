@@ -136,13 +136,35 @@
                                     <?= form_error('alamat', '<small class="text-danger ml-2">', '</small>') ?>
                                 </div>
                                 <div class="row">
-                                    <div class="col md-6">
+                                    <div class="col md-4">
                                         <button type="submit" class="btn btn-primary btn-block">Update</button>
                                     </div>
-                                    <div class="col md-6">
+                                    <div class="col md-4">
+                                        <button type="button" class="btn btn-info btn-block" id="addmonitoring">Add Monitoring+</button>
+                                    </div>
+                                    <div class="col md-4">
                                         <button type="reset" class="btn btn-secondary btn-block">Reset</button>
                                     </div>
                                 </div>
+                                <table class="table table-bordered w-100 table-responsive">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Tanggal Monitoring</th>
+                                            <th>Tekanan Darah</th>
+                                            <th>Tinggi Badan</th>
+                                            <th>Berat Badan</th>
+                                            <th>Lingkar Lengan Atas</th>
+                                            <th>Leopold</th>
+                                            <th>Tinggi Fundus Uteri</th>
+                                            <th>Denyut Jantung Janin</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="datatablex">
+                                    </tbody>
+                                </table>
+                                <input type="hidden" name="jml" id="jml" value="0">
                             </form>
                 </div>
             </div>
@@ -151,3 +173,52 @@
 
 </div>
 <!-- /.container-fluid -->
+<script>
+    $(document).ready(function() {
+        $('#addmonitoring').click(function() {
+            let no = parseInt($(`#jml`).val()) + 1;
+            $(`#jml`).val(no);
+            $(`#datatablex`).append(`
+                <tr>
+                    <td><span class="text-sm">${no}</span></td>
+                    <td>
+                        <div class="form-group">
+                            <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
+                        </div>
+                    </td>
+                    <td><button class="btn btn-primary btn-rounded-circle"><i class="fas fa-cross"></i></button></td>
+                </tr>
+            `);
+        });
+    })
+</script>

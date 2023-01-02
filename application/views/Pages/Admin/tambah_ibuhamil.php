@@ -59,7 +59,12 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="no_wa">No WA (aktif)</label>
-                                            <input type="number" class="form-control" id="no_wa" name="no_wa" placeholder="wa aktif" max="14">
+                                            <div class="input-group flex-nowrap">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="addon-wrapping">+62</span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="88877776666" id="no_wa" name="no_wa" aria-describedby="addon-wrapping" maxlength="12">
+                                            </div>
                                             <?= form_error('no_wa', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>

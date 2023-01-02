@@ -19,7 +19,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item <?= ($title === 'Dashboard' ? 'active' : '') ?>">
-        <a class="nav-link" href="<?= base_url('administrator'); ?>">
+        <a class="nav-link" href="<?= base_url(($this->session->userdata('role') == 1) ? 'administrator' : 'user'); ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -33,15 +33,15 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pelayanan:</h6>
-                <a class="collapse-item <?= ($title === 'Data Ibu Hamil' ? 'active' : '') ?>" href="<?= base_url('administrator/data_ibuhamil'); ?>">Data Ibu Hamil</a>
-                <a class="collapse-item <?= ($title === 'Data Monitoring Ibu Hamil' ? 'active' : '') ?>" href="<?= base_url('administrator/data_monitoring'); ?>">Monitoring Ibu Hamil</a>
+                <a class="collapse-item <?= ($title === 'Data Ibu Hamil' ? 'active' : '') ?>" href="<?= base_url(($this->session->userdata('role') == 2) ? 'user/data_ibuhamil' : 'administrator/data_ibuhamil'); ?>">Data Ibu Hamil</a>
+                <a class="collapse-item <?= ($title === 'Data Monitoring Ibu Hamil' ? 'active' : '') ?>" href="<?= base_url(($this->session->userdata('role') == 2) ? 'user/data_monitoring' : 'administrator/data_monitoring'); ?>">Monitoring Ibu Hamil</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item <?= ($title === 'Data Nakes' ? 'active' : '') ?>">
-        <a class="nav-link" href="<?= base_url('administrator/nakes'); ?>">
+        <a class="nav-link" href="<?= base_url(($this->session->userdata('role') == 2) ? 'user/nakes' : 'administrator/nakes'); ?>">
             <i class="fas fa-fw fa-user-md"></i>
             <span>Data Nakes</span></a>
     </li>

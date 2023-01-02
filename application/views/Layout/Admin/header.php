@@ -21,7 +21,12 @@
     <link href="<?= base_url() ?>assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="https://nightly.datatables.net/responsive/css/responsive.dataTables.css?_=0733d80df58ca2854b640850303e9ae6.css" rel="stylesheet" type="text/css" />
     <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript-->
+    <script src="<?= base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Core plugin JavaScript-->
+    <script src="<?= base_url() ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 </head>
 
 <body id="page-top">
