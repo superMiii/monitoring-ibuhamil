@@ -180,7 +180,7 @@
             $(`#jml`).val(no);
             $(`#datatablex`).append(`
                 <tr>
-                    <td><span class="text-sm">${no}</span></td>
+                    <td><span class="text-sm">#</span></td>
                     <td>
                         <div class="form-group">
                             <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
@@ -188,35 +188,40 @@
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
+                            <input type="number" class="form-control" name="tekanan_darah${no}" id="tekanan_darah${no}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
+                            <input type="number" class="form-control" name="tinggi_badan${no}" id="tinggi_badan${no}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
+                            <input type="number" class="form-control" name="berat_badan${no}" id="berat_badan${no}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
+                            <input type="number" class="form-control" name="lingkar_lengan_atas${no}" id="lingkar_lengan_atas${no}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
+                            <input type="number" class="form-control" name="leopold${no}" id="leopold${no}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
+                            <input type="number" class="form-control" name="tinggi_fundus_uteri${no}" id="tinggi_fundus_uteri${no}">
                         </div>
                     </td>
-                    <td><button class="btn btn-primary btn-rounded-circle"><i class="fas fa-cross"></i></button></td>
+                    <td>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="denyut_jantung_janin${no}" id="denyut_jantung_janin${no}">
+                        </div>
+                    </td>
+                    <td><button class="btn btn-primary btn-rounded-circle"><i class="fas fa-times"></i></button></td>
                 </tr>
             `);
         });
