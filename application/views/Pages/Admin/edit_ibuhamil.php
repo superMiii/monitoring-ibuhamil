@@ -176,54 +176,64 @@
 <script>
     $(document).ready(function() {
         $('#addmonitoring').click(function() {
-            let no = parseInt($(`#jml`).val()) + 1;
-            $(`#jml`).val(no);
+            let i = parseInt($(`#jml`).val()) + 1;
+            $(`#jml`).val(i);
+			var no     = $('#datatablex tr').length;
             $(`#datatablex`).append(`
                 <tr>
-                    <td><span class="text-sm">#</span></td>
+                    <td><spanx class="text-sm" id="num${i}">${no}</spanx></td>
                     <td>
                         <div class="form-group">
-                            <input type="date" class="form-control" name="tanggal_monitoring${no}" id="tanggal_monitoring${no}">
+                            <input type="date" class="form-control" name="tanggal_monitoring${i}" id="tanggal_monitoring${i}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="tekanan_darah${no}" id="tekanan_darah${no}">
+                            <input type="number" class="form-control" name="tekanan_darah${i}" id="tekanan_darah${i}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="tinggi_badan${no}" id="tinggi_badan${no}">
+                            <input type="number" class="form-control" name="tinggi_badan${i}" id="tinggi_badan${i}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="berat_badan${no}" id="berat_badan${no}">
+                            <input type="number" class="form-control" name="berat_badan${i}" id="berat_badan${i}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="lingkar_lengan_atas${no}" id="lingkar_lengan_atas${no}">
+                            <input type="number" class="form-control" name="lingkar_lengan_atas${i}" id="lingkar_lengan_atas${i}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="leopold${no}" id="leopold${no}">
+                            <input type="number" class="form-control" name="leopold${i}" id="leopold${i}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="tinggi_fundus_uteri${no}" id="tinggi_fundus_uteri${no}">
+                            <input type="number" class="form-control" name="tinggi_fundus_uteri${i}" id="tinggi_fundus_uteri${i}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="denyut_jantung_janin${no}" id="denyut_jantung_janin${no}">
+                            <input type="number" class="form-control" name="denyut_jantung_janin${i}" id="denyut_jantung_janin${i}">
                         </div>
                     </td>
-                    <td><button class="btn btn-primary btn-rounded-circle"><i class="fas fa-times"></i></button></td>
+                    <td><button type="button" class="ibtnDel btn btn-danger btn-circle" title="Delete"><i class="fas fa-times"></i></button></td>
                 </tr>
             `);
         });
-    })
+    });
+
+	$("#datatablex").on("click", ".ibtnDel", function (event) {    
+        $(this).closest("tr").remove();
+        var obj = $('#datatablex tr:visible').find('spanx');
+        $.each( obj, function( key, value ) {
+            id = value.id;
+            $('#'+id).html(key+1);
+        });
+    });
 </script>
