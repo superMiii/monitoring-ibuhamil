@@ -8,9 +8,9 @@
                 <div class="card-body">
                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                         Tambah Data Ibu Hamil</div>
-                    <a href="<?= base_url('administrator/data_ibuhamil') ?>" class="badge badge-primary mb-4">
+                    <a href="<?= $this->session->userdata('role') == 1 ? base_url('administrator/data_ibuhamil/' . $ibuhamil['id_ibuhamil']) : base_url('user/data_ibuhamil/' . $ibuhamil['id_ibuhamil']) ?>" class="badge badge-primary mb-4">
                         < Kembali</a>
-                            <form action="<?= base_url('administrator/add_ibuhamil') ?>" method="POST" enctype="multipart/form-data">
+                            <form action="<?= $this->session->userdata('role') == 1 ? base_url('administrator/add_ibuhamil/' . $ibuhamil['id_ibuhamil']) : base_url('user/add_ibuhamil/' . $ibuhamil['id_ibuhamil']) ?>" method="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">

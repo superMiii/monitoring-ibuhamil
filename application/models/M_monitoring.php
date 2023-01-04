@@ -43,10 +43,31 @@ class M_monitoring extends CI_Model
 
         $this->db->insert('tb_monitoring', $data);
     }
+
+    public function insertAll($id, $tanggal_monitoring, $tekanan_darah, $tinggi_badan, $berat_badan, $lingkar_lengan_atas, $leopold, $tinggi_fundus_uteri, $denyut_jantung_janin)
+    {
+        $data = [
+            'id_ibuhamil' => $id,
+            'tanggal_monitoring' => $tanggal_monitoring,
+            'tekanan_darah' => $tekanan_darah,
+            'tinggi_badan' => $tinggi_badan,
+            'berat_badan' => $berat_badan,
+            'lingkar_lengan_atas' => $lingkar_lengan_atas,
+            'leopold' => $leopold,
+            'tinggi_fundus_uteri' => $tinggi_fundus_uteri,
+            'denyut_jantung_janin' => $denyut_jantung_janin,
+        ];
+        $this->db->insert('tb_monitoring', $data);
+    }
     public function delete($id_ibuhamil, $id)
     {
         $this->db->where('id_ibuhamil', $id_ibuhamil);
         $this->db->where('id', $id);
+        $this->db->delete('tb_monitoring');
+    }
+    public function deleteByIdIbuhamil($id_ibuhamil)
+    {
+        $this->db->where('id_ibuhamil', $id_ibuhamil);
         $this->db->delete('tb_monitoring');
     }
 }

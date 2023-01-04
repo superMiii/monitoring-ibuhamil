@@ -34,7 +34,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pelayanan:</h6>
                 <a class="collapse-item <?= ($title === 'Data Ibu Hamil' ? 'active' : '') ?>" href="<?= base_url(($this->session->userdata('role') == 2) ? 'user/data_ibuhamil' : 'administrator/data_ibuhamil'); ?>">Data Ibu Hamil</a>
-                <a class="collapse-item <?= ($title === 'Data Monitoring Ibu Hamil' ? 'active' : '') ?>" href="<?= base_url(($this->session->userdata('role') == 2) ? 'user/data_monitoring' : 'administrator/data_monitoring'); ?>">Monitoring Ibu Hamil</a>
+                <!-- <a class="collapse-item <?= ($title === 'Data Monitoring Ibu Hamil' ? 'active' : '') ?>" href="<?= base_url(($this->session->userdata('role') == 2) ? 'user/data_monitoring' : 'administrator/data_monitoring'); ?>">Monitoring Ibu Hamil</a> -->
             </div>
         </div>
     </li>

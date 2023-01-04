@@ -6,8 +6,10 @@
         <div class="col-md">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
-                    <a href="<?= base_url('administrator/data_ibuhamil') ?>" class="badge badge-primary mb-4">
+                    <a href="<?= $this->session->userdata('role') == 1 ? base_url('administrator/data_ibuhamil') : base_url('user/data_ibuhamil') ?>" class="badge badge-primary mb-4">
                         < Kembali</a>
+                            <a href="<?= $this->session->userdata('role') == 1 ? base_url('administrator/print/' . $ibuhamil['id_ibuhamil']) : base_url('user/print/' . $ibuhamil['id_ibuhamil']) ?>" class="badge badge-info mb-4">
+                                <i class="fas fa-print"></i> Print</a>
                             <table class="table">
                                 <tbody>
                                     <tr>

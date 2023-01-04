@@ -78,13 +78,13 @@ class User extends CI_Controller
         } else {
             $this->M_ibuhamil->add();
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Ibu hamil berhasil di tambah!</div>');
-            redirect('administrator/data_ibuhamil');
+            redirect('user/data_ibuhamil');
         }
     }
     public function edit_ibuhamil($id)
     {
-        $this->form_validation->set_rules('no_kk', 'NO KK', 'required|numeric|is_unique[tb_ibuhamil.no_kk]|max_length[16]');
-        $this->form_validation->set_rules('nik', 'NIK', 'required|numeric|is_unique[tb_ibuhamil.nik]|max_length[16]');
+        $this->form_validation->set_rules('no_kk', 'NO KK', 'required|numeric|max_length[16]');
+        $this->form_validation->set_rules('nik', 'NIK', 'required|numeric|max_length[16]');
         $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'required');
         $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
         $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
@@ -99,15 +99,30 @@ class User extends CI_Controller
         if ($this->form_validation->run() === FALSE) {
             $data['title'] = 'Tambah Data Ibu Hamil';
             $data['ibuhamil'] = $this->M_ibuhamil->getById($id);
+            $data['monitoring'] = $this->M_monitoring->getByIdIbuhamil($id);
             $this->load->view('Layout/Admin/header', $data);
             $this->load->view('Layout/Admin/sidebar', $data);
             $this->load->view('Layout/Admin/topbar');
             $this->load->view('Pages/Admin/edit_ibuhamil', $data);
             $this->load->view('Layout/Admin/footer');
         } else {
+            $jml = $this->input->post('jml', true);
             $this->M_ibuhamil->edit($id);
+            $this->M_monitoring->deleteByIdIbuhamil($id);
+            for ($i = 1; $i <= $jml; $i++) {
+                $tanggal_monitoring = $this->input->post("tanggal_monitoring$i", true);
+                $tekanan_darah = $this->input->post("tekanan_darah$i", true);
+                $tinggi_badan = $this->input->post("tinggi_badan$i", true);
+                $berat_badan = $this->input->post("berat_badan$i", true);
+                $lingkar_lengan_atas = $this->input->post("lingkar_lengan_atas$i", true);
+                $leopold = $this->input->post("leopold$i", true);
+                $tinggi_fundus_uteri = $this->input->post("tinggi_fundus_uteri$i", true);
+                $denyut_jantung_janin = $this->input->post("denyut_jantung_janin$i", true);
+                $tanggal_monitoring = $this->input->post("tanggal_monitoring$i", true);
+                $this->M_monitoring->insertAll($id, $tanggal_monitoring, $tekanan_darah, $tinggi_badan, $berat_badan, $lingkar_lengan_atas, $leopold, $tinggi_fundus_uteri, $denyut_jantung_janin);
+            }
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Ibu hamil berhasil di ubah!</div>');
-            redirect('administrator/data_ibuhamil');
+            redirect('user/data_ibuhamil');
         }
     }
     public function delete_ibuhamil($id)
@@ -116,11 +131,18 @@ class User extends CI_Controller
         if ($data) {
             $this->M_ibuhamil->delete($id);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Ibu hamil berhasil di hapus!</div>');
-            redirect('administrator/data_ibuhamil');
+            redirect('user/data_ibuhamil');
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Ibu hamil tidak ada!</div>');
-            redirect('administrator/data_ibuhamil');
+            redirect('user/data_ibuhamil');
         }
+    }
+    public function print($id)
+    {
+        $data['title'] = 'Print Data Ibu Hamil';
+        $data['ibuhamil'] = $this->M_ibuhamil->getById($id);
+        $data['monitoring_ibuhamil'] = $this->M_monitoring->getByIdIbuhamil($id);
+        $this->load->view('Pages/Admin/print_ibuhamil', $data);
     }
     /*
         End Of Data Ibu Hamil
@@ -171,7 +193,7 @@ class User extends CI_Controller
         } else {
             $this->M_monitoring->add($id_ibuhamil);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Monitoring Ibu hamil berhasil ditambahkan</div>');
-            redirect('administrator/detail_monitoring/' . $id_ibuhamil);
+            redirect('user/detail_monitoring/' . $id_ibuhamil);
         }
     }
     public function detail_monitoring_ibuhamil($id_ibuhamil, $id)
@@ -190,10 +212,10 @@ class User extends CI_Controller
         if ($data) {
             $this->M_monitoring->delete($id_ibuhamil, $id);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data monitoring berhasil di hapus!</div>');
-            redirect('administrator/detail_monitoring/' . $id_ibuhamil);
+            redirect('user/detail_monitoring/' . $id_ibuhamil);
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data monitoring tidak ada!</div>');
-            redirect('administrator/detail_monitoring/' . $id_ibuhamil);
+            redirect('user/detail_monitoring/' . $id_ibuhamil);
         }
     }
     /*

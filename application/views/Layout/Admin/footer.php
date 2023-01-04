@@ -66,10 +66,10 @@
 <!-- <script src="<?= base_url() ?>assets/js/demo/datatables-demo.js"></script> -->
 <script>
     $('#dataTable').DataTable({
-        dom: 'Blfrtip',
-        buttons: [
-            'copy', 'excel', 'csv', 'pdf', 'print'
-        ],
+        // dom: 'Blfrtip',
+        // buttons: [
+        //     'copy', 'excel', 'csv', 'pdf', 'print'
+        // ],
         "scrollX": true,
     })
 </script>

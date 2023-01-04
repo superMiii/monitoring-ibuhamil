@@ -8,21 +8,21 @@
                 <div class="card-body">
                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                         Edit Data Ibu Hamil <?= $ibuhamil['nama_lengkap'] ?></div>
-                    <a href="<?= base_url('administrator/data_ibuhamil') ?>" class="badge badge-primary mb-4">
+                    <a href="<?= $this->session->userdata('role') == 1 ? base_url('administrator/data_ibuhamil') : base_url('user/data_ibuhamil') ?>" class="badge badge-primary mb-4">
                         < Kembali</a>
-                            <form action="<?= base_url('administrator/edit_ibuhamil/' . $ibuhamil['id_ibuhamil']) ?>" method="POST" enctype="multipart/form-data">
+                            <form action="<?= $this->session->userdata('role') == 1 ? base_url('administrator/edit_ibuhamil/' . $ibuhamil['id_ibuhamil']) : base_url('user/edit_ibuhamil/' . $ibuhamil['id_ibuhamil']) ?>" method="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="no_kk">No KK</label>
-                                            <input type="number" class="form-control" id="no_kk" name="no_kk" max="16" value="<?= $ibuhamil['no_kk'] ?>" placeholder="No KK">
+                                            <input type="number" class="form-control" id="no_kk" name="no_kk" maxlength="16" value="<?= $ibuhamil['no_kk'] ?>" placeholder="No KK">
                                             <?= form_error('no_kk', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="nik">No NIK</label>
-                                            <input type="number" class="form-control" id="nik" name="nik" max="16" value="<?= $ibuhamil['nik'] ?>" placeholder="No NIK">
+                                            <input type="number" class="form-control" id="nik" name="nik" maxlength="16" value="<?= $ibuhamil['nik'] ?>" placeholder="No NIK">
                                             <?= form_error('nik', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>
@@ -59,7 +59,12 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="no_wa">No WA (aktif)</label>
-                                            <input type="number" class="form-control" id="no_wa" name="no_wa" max="14" value="<?= $ibuhamil['no_wa'] ?>" placeholder="wa aktif">
+                                            <div class="input-group flex-nowrap">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="addon-wrapping">+62</span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="88877776666" id="no_wa" name="no_wa" aria-describedby="addon-wrapping" maxlength="12" value="<?= $ibuhamil['no_wa'] ?>">
+                                            </div>
                                             <?= form_error('no_wa', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>
@@ -118,14 +123,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="tinggi_badan">Tinggi Badan (cm)</label>
-                                            <input type="number" class="form-control" id="tinggi_badan" max="4" name="tinggi_badan" value="<?= $ibuhamil['tinggi_badan'] ?>" placeholder="cm">
+                                            <input type="number" class="form-control" id="tinggi_badan" maxlength="4" name="tinggi_badan" value="<?= $ibuhamil['tinggi_badan'] ?>" placeholder="cm">
                                             <?= form_error('tinggi_badan', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="berat_badan">Berat Badan (kg)</label>
-                                            <input type="number" class="form-control" id="berat_badan" max="4" name="berat_badan" value="<?= $ibuhamil['berat_badan'] ?>" placeholder="kg">
+                                            <input type="number" class="form-control" id="berat_badan" maxlength="4" name="berat_badan" value="<?= $ibuhamil['berat_badan'] ?>" placeholder="kg">
                                             <?= form_error('berat_badan', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
                                     </div>
@@ -162,9 +167,61 @@
                                         </tr>
                                     </thead>
                                     <tbody id="datatablex">
+                                        <?php
+                                        $no = 1;
+                                        if ($monitoring) {
+                                            foreach ($monitoring as $m) { ?>
+                                                <tr>
+                                                    <td>
+                                                        <spanx class="text-sm" id="num<?= $no ?>"><?= $no ?></spanx>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="date" class="form-control" name="tanggal_monitoring<?= $no ?>" id="tanggal_monitoring<?= $no ?>" value="<?= $m['tanggal_monitoring'] ?>">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" value="<?= $m['tekanan_darah'] ?>" name="tekanan_darah<?= $no ?>" id="tekanan_darah<?= $no ?>">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="number" class="form-control" value="<?= $m['tinggi_badan'] ?>" name="tinggi_badan<?= $no ?>" id="tinggi_badan<?= $no ?>">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="number" class="form-control" value="<?= $m['berat_badan'] ?>" name="berat_badan<?= $no ?>" id="berat_badan<?= $no ?>">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="number" class="form-control" value="<?= $m['lingkar_lengan_atas'] ?>" name="lingkar_lengan_atas<?= $no ?>" id="lingkar_lengan_atas<?= $no ?>">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="number" class="form-control" value="<?= $m['leopold'] ?>" name="leopold<?= $no ?>" id="leopold<?= $no ?>">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="number" class="form-control" value="<?= $m['tinggi_fundus_uteri'] ?>" name="tinggi_fundus_uteri<?= $no ?>" id="tinggi_fundus_uteri<?= $no ?>">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <input type="number" class="form-control" value="<?= $m['denyut_jantung_janin'] ?>" name="denyut_jantung_janin<?= $no ?>" id="denyut_jantung_janin<?= $no ?>">
+                                                        </div>
+                                                    </td>
+                                                    <td><button type="button" class="ibtnDel btn btn-danger btn-circle" title="Delete"><i class="fas fa-times"></i></button></td>
+                                                </tr>
+                                            <?php } ?>
                                     </tbody>
                                 </table>
-                                <input type="hidden" name="jml" id="jml" value="0">
+                                <input type="hidden" name="jml" id="jml" value="<?= count($monitoring) ?>">
+                            <?php } ?>
                             </form>
                 </div>
             </div>
@@ -178,7 +235,7 @@
         $('#addmonitoring').click(function() {
             let i = parseInt($(`#jml`).val()) + 1;
             $(`#jml`).val(i);
-			var no     = $('#datatablex tr').length;
+            var no = $('#datatablex tr').length + 1;
             $(`#datatablex`).append(`
                 <tr>
                     <td><spanx class="text-sm" id="num${i}">${no}</spanx></td>
@@ -189,7 +246,7 @@
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="tekanan_darah${i}" id="tekanan_darah${i}">
+                            <input type="text" class="form-control" name="tekanan_darah${i}" id="tekanan_darah${i}">
                         </div>
                     </td>
                     <td>
@@ -228,12 +285,12 @@
         });
     });
 
-	$("#datatablex").on("click", ".ibtnDel", function (event) {    
+    $("#datatablex").on("click", ".ibtnDel", function(event) {
         $(this).closest("tr").remove();
         var obj = $('#datatablex tr:visible').find('spanx');
-        $.each( obj, function( key, value ) {
+        $.each(obj, function(key, value) {
             id = value.id;
-            $('#'+id).html(key+1);
+            $('#' + id).html(key + 1);
         });
     });
 </script>
