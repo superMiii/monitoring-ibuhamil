@@ -61,9 +61,9 @@
                                             <label for="no_wa">No WA (aktif)</label>
                                             <div class="input-group flex-nowrap">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="addon-wrapping">+62</span>
+                                                    <span class="input-group-text" id="addon-wrapping">+</span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="88877776666" id="no_wa" name="no_wa" aria-describedby="addon-wrapping" maxlength="12" value="<?= $ibuhamil['no_wa'] ?>">
+                                                <input type="text" class="form-control" placeholder="88877776666" id="no_wa" name="no_wa" aria-describedby="addon-wrapping" maxlength="14" value="<?= $ibuhamil['no_wa'] ?>">
                                             </div>
                                             <?= form_error('no_wa', '<small class="text-danger ml-2">', '</small>') ?>
                                         </div>
@@ -217,7 +217,8 @@
                                                     </td>
                                                     <td><button type="button" class="ibtnDel btn btn-danger btn-circle" title="Delete"><i class="fas fa-times"></i></button></td>
                                                 </tr>
-                                            <?php } ?>
+                                            <?php $no++;
+                                            } ?>
                                     </tbody>
                                 </table>
                                 <input type="hidden" name="jml" id="jml" value="<?= count($monitoring) ?>">

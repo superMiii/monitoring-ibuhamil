@@ -38,7 +38,7 @@
                                         <td><?= date('d M Y', strtotime($ih['tanggal_lahir'])) ?></td>
                                         <td><?= $ih['alamat'] ?></td>
                                         <td>
-                                            <a href="<?= base_url(($this->session->userdata('role') == 1) ? 'administrator/edit_ibuhamil/' . $ih['id_ibuhamil'] : 'user/edit_ibuhamil/' . $ih['id_ibuhamil']) ?>" class="badge badge-warning"><i class="fas fa-edit"></i></a>
+                                            <a href="<?= base_url(($this->session->userdata('role') == 1) ? 'administrator/edit_ibuhamil/' . $ih['id_ibuhamil'] : 'user/edit_ibuhamil/' . $ih['id_ibuhamil']) ?>" class="badge badge-warning"><i class="fas fa-edit"></i> + monitoring</a> <br>
                                             <a href="<?= base_url(($this->session->userdata('role') == 1) ? 'administrator/hapus_ibuhamil/' . $ih['id_ibuhamil'] : 'user/hapus_ibuhamil/' . $ih['id_ibuhamil']) ?>" onclick="return confirm('Apakah anda yakin ingin menghapusnya?')" class="badge badge-danger"><i class="fas fa-trash"></i></a>
                                             <a href="<?= base_url(($this->session->userdata('role') == 1) ? 'administrator/detail_ibuhamil/' . $ih['id_ibuhamil'] : 'user/detail_ibuhamil/' . $ih['id_ibuhamil']) ?>" class="badge badge-info"><i class="fas fa-info-circle"></i></a>
                                         </td>
